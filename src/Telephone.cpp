@@ -14,6 +14,6 @@ class Telephone
     protected:
 
     private:
-        enum category;
-        enum form;
+        PhoneCategory category;
+        PhoneForm form;
 };
