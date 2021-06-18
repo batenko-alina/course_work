@@ -1,11 +1,39 @@
 #include "Organization.h"
 
-Organization::Organization()
+class Organization
 {
-    //ctor
-}
+    public:
+        Organization();
+        virtual ~Organization();
 
-Organization::~Organization()
-{
-    //dtor
-}
+        string Getname(){
+        return name;
+        };
+        void Setname(string val)
+        {
+        name=val;
+        };
+        string Gettype()
+        {
+        return type;
+        };
+        void Settype(string val)
+        {
+        type=val;
+        };
+        Person* Getleader()
+        {
+        return leader;
+        };
+        void Setleader(Person* val)
+        {
+        leader=val;
+        };
+
+    protected:
+
+    private:
+        string name;
+        string type;
+        Person* leader;
+};
