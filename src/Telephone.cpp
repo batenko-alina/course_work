@@ -10,7 +10,7 @@ class Telephone
         void Setcategory(enum val) { category = val; }
         enum Getform() { return form; }
         void Setform(enum val) { form = val; }
-        string getNumber()
+        string GetNumber()
         {
             return number;
         }

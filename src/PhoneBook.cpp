@@ -15,12 +15,12 @@ class PhoneBook
         void addPersonToList(Person val)
         {
             personList.push_back(val);
-        cout<<"new item added to the list:"<<val.FIO;
+        cout<<"new item added to the list:"<<val.GetFIO();
         }
         void addOrganizationToList(Organization val)
         {
             organizationList.push_back(val);
-            cout<<"new organization added to the list:"<<val.name;
+            cout<<"new organization added to the list:"<<val.Getname();
 
         }
         Person* getPersonByNumber(string number)
@@ -54,21 +54,24 @@ class PhoneBook
         {
             for(int i=0;i<personList.size();i++)
             {
-                if(fullName==personList[i].FIO)
+                if(fullName==personList[i].GetFIO())
                     return *(&personList[i]);
             }
             cout<<"No person with this name";
         }
-        Person* getPersonByPartName(string fullName)
+        vector<Person*> getPersonByPartName(string partName)
         {
+        vector<Person*> people;
             for(int i=0;i<personList.size();i++)
             {
-                if (s1.find(s2) != std::string::npos)
+                if (personList[i].GetFIO().find(partName) != std::string::npos)
                     {
-                    return *(&personList[i]);
+                    people.push_back(*(&personList[i]));
                     }
             }
+            if(people.size==0)
             cout<<"No person contains this name";
+            else return people;
         }
         Organization* getOrganizationByNumber(string number)
         {

@@ -1,4 +1,4 @@
-enum class PhoneCategory
+enum PhoneCategory
 {
 home,mobile,work
-}
+};

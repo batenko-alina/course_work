@@ -8,16 +8,19 @@ class Telephone
         Telephone();
         virtual ~Telephone();
 
-        enum Getcategory() ;
+        PhoneCategory Getcategory() ;
         void Setcategory(enum val);
-        enum Getform() ;
+        PhoneForm Getform() ;
         void Setform(enum val);
+        string GetNumber();
+        void SetNumber(string val);
 
     protected:
 
     private:
-        enum category;
-        enum form;
+        PhoneCategory category;
+        PhoneForm form;
+        string number;
 };
 
 #endif // TELEPHONE_H
