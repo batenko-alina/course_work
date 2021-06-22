@@ -1,39 +1,39 @@
 #include "Organization.h"
+#include<iostream>
 
-class Organization
-{
-    public:
-        Organization();
-        virtual ~Organization();
 
-        string Getname(){
-        return name;
+        Organization::~Organization(){
+        delete Organization::leader;
+        }
+        string Organization::Getname(){
+        return Organization::name;
         };
-        void Setname(string val)
+        void Organization::Setname(string val)
         {
-        name=val;
+        Organization::name=val;
         };
-        string Gettype()
+        string Organization::Gettype()
         {
-        return type;
+        return Organization::type;
         };
-        void Settype(string val)
+        void Organization::Settype(string val)
         {
-        type=val;
+        Organization::type=val;
         };
-        Person* Getleader()
+        Person* Organization::Getleader()
         {
-        return leader;
+        return Organization::leader;//*
         };
-        void Setleader(Person* val)
+        void Organization::Setleader(Person val)
         {
-        leader=val;
+        Organization::leader=&val;//*
         };
+        void Organization::printInformation()
+        {
+            cout<<"Organization name:"<<Organization::name;
+            cout<<"Organization type:"<<Organization::type;
+            printPhonesAndEmails();
+            cout<<"Leader:";
+            Organization::leader->printInformation();
+        }
 
-    protected:
-
-    private:
-        string name;
-        string type;
-        Person* leader;
-};

@@ -1,25 +1,28 @@
 #ifndef PHONEBOOK_H
 #define PHONEBOOK_H
 
+using namespace std;
+#include <vector>
+#include <Person.h>
 
 class PhoneBook
 {
     public:
-        PhoneBook();
         virtual ~PhoneBook();
 
-        vector<Person> GetpersonList();
-        void SetpersonList(vector<Person> val);
+        vector<Person> GetPersonList();
+        void SetPersonList(vector<Person> val);
         void addPersonToList(Person val);
         vector<Organization> GetOrganizationList();
         void SetOrganizationList(vector<Organization> val);
-        Person* getPersonByNumber(string number);
-        Person* getPersonByEmail(string email);
-        Organization* getOrganizationByNumber(string number);
-        Organization* getOrganizationByEmail(string email);
-        Person* getPersonByFullName(string fullName);
-        Person* getPersonByPartName(string fullName);
+        Person getPersonByNumber(string number);
+        Person getPersonByEmail(string email);
+        Organization getOrganizationByNumber(string number);
+        Organization getOrganizationByEmail(string email);
+        Person getPersonByFullName(string fullName);
+        vector<Person> getPersonByPartName(string fullName);
         void addOrganizationToList(Organization val);
+        void printAllInformation();
 
 
 

@@ -1,28 +1,16 @@
 #include "Telephone.h"
+#include <string>
 
-class Telephone
-{
-    public:
-        Telephone();
-        virtual ~Telephone();
-
-        enum Getcategory() { return category; }
-        void Setcategory(enum val) { category = val; }
-        enum Getform() { return form; }
-        void Setform(enum val) { form = val; }
-        string GetNumber()
+        Telephone::~Telephone(){}
+        PhoneCategory Telephone::Getcategory() { return Telephone::category; }
+        void Telephone::Setcategory(PhoneCategory val) { Telephone::category = val; }
+        PhoneForm Telephone::Getform() { return Telephone::form; }
+        void Telephone::Setform(PhoneForm val) { Telephone::form = val; }
+        string Telephone::GetNumber()
         {
-            return number;
+            return Telephone::number;
         }
-        void SetNumber(string val)
+        void Telephone::SetNumber(string val)
         {
-            number=val;
+            Telephone::number=val;
         }
-
-    protected:
-
-    private:
-        PhoneCategory category;
-        PhoneForm form;
-        string number;
-};

@@ -1,20 +1,26 @@
 #include "PhoneBookItem.h"
+#include <iostream>
 
-abstract class PhoneBookItem
-{
-    public:
-        PhoneBookItem();
-        virtual ~PhoneBookItem();
+        PhoneBookItem::~PhoneBookItem(){}
+        vector<Telephone> PhoneBookItem::GetPhoneList() { return PhoneBookItem::PhoneList; }
 
-        virtual vector<Telephone> GetPhoneList() { return PhoneList; }
-        virtual void SetPhoneList(vector<Telephone> val) { PhoneList = val; }
-        virtual vector<string> GetEmailList() { return EmailList; }
-        virtual void SetEmailList(vector<string> val) { EmailList = val; }
+        void PhoneBookItem::SetPhoneList(vector<Telephone> val) { PhoneBookItem::PhoneList = val; }
 
-    protected:
+        vector<string> PhoneBookItem::GetEmailList() { return PhoneBookItem::EmailList; }
 
-    private:
-        vector<Telephone> PhoneList;
-        vector<string> EmailList;
+        void PhoneBookItem::SetEmailList(vector<string> val) { PhoneBookItem::EmailList = val; }
 
-};
+        void PhoneBookItem::printPhonesAndEmails()
+        {
+            cout<<"Phones:\n";
+            for(int i=0;i<PhoneBookItem::PhoneList.size();i++)
+            {
+            cout<<"    Phone ¹"<<i+1<<":"<<PhoneBookItem::PhoneList[i].GetNumber()<<"\n";
+            }
+            cout<<"Emails:\n";
+            for(int i=0;i<PhoneBookItem::EmailList.size();i++)
+            {
+            cout<<"    Email ¹"<<i+1<<":"<<PhoneBookItem::EmailList[i]<<"\n";
+            }
+
+        }

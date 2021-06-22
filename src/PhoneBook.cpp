@@ -1,112 +1,114 @@
 #include "PhoneBook.h"
+#include<Organization.h>
+#include <iostream>
+#include<Telephone.h>
 
-class PhoneBook
-{
-    public:
-        PhoneBook();
-        virtual ~PhoneBook();
+        PhoneBook::~PhoneBook(){}
 
-        vector<Person> GetPersonList() { return personList; }
-        void SetPersonList(vector<Person> val) { personList = val; }
-        vector<Organization> GetOrganizationList(){return organizationList;}
-        void SetOrganizationList(vector<Organization> val){
-        organizationList=val;
+        vector<Person> PhoneBook::GetPersonList() { return PhoneBook::personList; }
+
+        void PhoneBook::SetPersonList(vector<Person> val) { PhoneBook::personList = val; }
+
+        vector<Organization> PhoneBook::GetOrganizationList(){return PhoneBook::organizationList;}
+
+        void PhoneBook::SetOrganizationList(vector<Organization> val){
+        PhoneBook::organizationList=val;
         }
-        void addPersonToList(Person val)
+        void PhoneBook::addPersonToList(Person val)
         {
-            personList.push_back(val);
-        cout<<"new item added to the list:"<<val.GetFIO();
+            PhoneBook::personList.push_back(val);
+        cout<<"new item added to the list:"<<val.GetFIO()<<"\n";
         }
-        void addOrganizationToList(Organization val)
+        void PhoneBook::addOrganizationToList(Organization val)
         {
-            organizationList.push_back(val);
-            cout<<"new organization added to the list:"<<val.Getname();
+            PhoneBook::organizationList.push_back(val);
+            cout<<"new organization added to the list:"<<val.Getname()<<"\n";
 
         }
-        Person* getPersonByNumber(string number)
+        Person PhoneBook::getPersonByNumber(string number)
         {
-            for(int i=0;i<personList.size();i++)
+            for(int i=0;i<PhoneBook::personList.size();i++)
             {
-                vector<Telephone> telephones=personList[i].GetPhoneList();
+                vector<Telephone> telephones=PhoneBook::personList[i].GetPhoneList();
                 for(int j=0;j<telephones.size();j++)
                 {
-                if(number==telephones[j])
-                    return *(&personList[i]);
+                if(number==telephones[j].GetNumber())
+                    return PhoneBook::personList[i];
                 }
             }
-            cout<<"No person with this number";
+            cout<<"No person with this number"<<"\n";
         }
 
-        Person* getPersonByEmail(string email)
+        Person PhoneBook::getPersonByEmail(string email)
         {
-            for(int i=0;i<personList.size();i++)
+            for(int i=0;i<PhoneBook::personList.size();i++)
             {
-                vector<string> emails=personList[i].GetEmailList();
+                vector<string> emails=PhoneBook::personList[i].GetEmailList();
                 for(int j=0;j<emails.size();j++)
                 {
                 if(email==emails[j])
-                    return *(&itemList[i]);
+                    return PhoneBook::personList[i];
                 }
             }
-            cout<<"No person with this email";
+            cout<<"No person with this email"<<"\n";
         }
-        Person* getPersonByFullName(string fullName)
+        Person PhoneBook::getPersonByFullName(string fullName)
         {
-            for(int i=0;i<personList.size();i++)
+            for(int i=0;i<PhoneBook::personList.size();i++)
             {
-                if(fullName==personList[i].GetFIO())
-                    return *(&personList[i]);
+                if(fullName==PhoneBook::personList[i].GetFIO())
+                    return personList[i];
             }
-            cout<<"No person with this name";
+            cout<<"No person with this name"<<"\n";
         }
-        vector<Person*> getPersonByPartName(string partName)
+        vector<Person> PhoneBook::getPersonByPartName(string partName)
         {
-        vector<Person*> people;
-            for(int i=0;i<personList.size();i++)
+        vector<Person> people;
+            for(int i=0;i<PhoneBook::personList.size();i++)
             {
-                if (personList[i].GetFIO().find(partName) != std::string::npos)
+                if (PhoneBook::personList[i].GetFIO().find(partName) != std::string::npos)
                     {
-                    people.push_back(*(&personList[i]));
+                    people.push_back(PhoneBook::personList[i]);
                     }
             }
-            if(people.size==0)
-            cout<<"No person contains this name";
+            if(people.size()==0)
+            cout<<"No person contains this name"<<"\n";
             else return people;
         }
-        Organization* getOrganizationByNumber(string number)
+        Organization PhoneBook::getOrganizationByNumber(string number)
         {
-            for(int i=0;i<organizationList.size();i++)
+            for(int i=0;i<PhoneBook::organizationList.size();i++)
             {
-                vector<Telephone> telephones=organizationList[i].GetPhoneList();
+                vector<Telephone> telephones=PhoneBook::organizationList[i].GetPhoneList();
                 for(int j=0;j<telephones.size();j++)
                 {
-                if(number==telephones[j])
-                    return *(&organizationList[i]);
+                if(number==telephones[j].GetNumber())
+                    return PhoneBook::organizationList[i];
                 }
             }
-            cout<<"No organization with this number";
+            cout<<"No organization with this number"<<"\n";
         }
-        Organization* getOrganizationByEmail(string email)
+        Organization PhoneBook::getOrganizationByEmail(string email)
         {
-            for(int i=0;i<organizationList.size();i++)
+            for(int i=0;i<PhoneBook::organizationList.size();i++)
             {
-                vector<string> emails=organizationList[i].GetEmailList();
+                vector<string> emails=PhoneBook::organizationList[i].GetEmailList();
                 for(int j=0;j<emails.size();j++)
                 {
                 if(email==emails[j])
-                    return *(&organizationList[i]);
+                    return PhoneBook::organizationList[i];
                 }
             }
-            cout<<"No organization with this email";
+            cout<<"No organization with this email"<<"\n";
         }
-
-
-
-
-
-    protected:
-
-    private:
-        vector<Person> personList;
-        vector<Organization> organizationList;
-};
+        void PhoneBook::printAllInformation()
+        {
+            for(int i=0;i<PhoneBook::personList.size();i++)
+            {
+                PhoneBook::personList[i].printInformation();
+            }
+            for(int i=0;i<PhoneBook::organizationList.size();i++)
+            {
+                PhoneBook::organizationList[i].printInformation();
+            }
+        }

@@ -1,27 +1,29 @@
 #include "Person.h"
 
 #include "Organization.h"
-//мы удалили эту строку из Person.h и я, на всякий случай, её указал в этом файле
+#include <iostream>
 
-//не нужно дублировать содержимое h файла в cpp файле
-class Person:PhoneBookItem
-{
-    public:
-        Person();
-        ~Person();
+        Person::~Person(){
+        delete Person::organization;
+        }
+        string Person::GetFIO() { return Person::FIO; }
+        void Person::SetFIO(string val) { Person::FIO = val; }
+        Sex Person::Getsex() { return Person::sex; }
+        void Person::Setsex(Sex val) { Person::sex = val; }
+        Organization* Person::GetOrganization()
+        {
+        return Person::organization;//*
+        }
+        void Person::SetOrganization(Organization* val)
+        {
+        Person::organization=val;//*
+        }
+        void Person::printInformation()
+        {
+            cout<<"FIO:"<<Person::FIO<<"\n";
+            cout<<"Sex:"<<Person::sex<<"\n";
+            Person::printPhonesAndEmails();
+            cout<<"Organization information:\n";
+            Person::organization->printInformation();
+        }
 
-        string GetFIO() { return FIO; }
-        void SetFIO(string val) { FIO = val; }
-        enum Getsex() { return sex; }
-        void Setsex(enum val) { sex = val; }
-
-
-
-    protected:
-
-    private:
-    string FIO;
-    Sex sex;
-    Organization* organization;
-
-};

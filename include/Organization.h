@@ -2,10 +2,9 @@
 #define ORGANIZATION_H
 #include <Person.h>
 
-class Organization
+class Organization: public PhoneBookItem
 {
     public:
-        Organization();
         virtual ~Organization();
 
         string Getname();
@@ -13,7 +12,8 @@ class Organization
         string Gettype();
         void Settype(string val);
         Person* Getleader();
-        void Setleader(Person* val);
+        void Setleader(Person val);
+        void printInformation();
 
     protected:
 

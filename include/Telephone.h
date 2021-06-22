@@ -1,17 +1,24 @@
 #ifndef TELEPHONE_H
 #define TELEPHONE_H
-
-
+using namespace std;
+#include <string>
+enum PhoneCategory
+{
+home,mobile,work
+};
+enum PhoneForm
+{
+fullForm,middleForm,shortForm
+};
 class Telephone
 {
     public:
-        Telephone();
         virtual ~Telephone();
 
         PhoneCategory Getcategory() ;
-        void Setcategory(enum val);
+        void Setcategory(PhoneCategory val);
         PhoneForm Getform() ;
-        void Setform(enum val);
+        void Setform(PhoneForm val);
         string GetNumber();
         void SetNumber(string val);
 
