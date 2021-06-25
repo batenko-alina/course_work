@@ -1,8 +1,10 @@
 #include "Organization.h"
 #include<iostream>
+#include "Person.h"
 
 
-
+        //Organization::Organization(){
+        //}
         Organization::~Organization(){
         delete Organization::leader;
         }
@@ -25,15 +27,17 @@
         {
         return Organization::leader;//*
         };
-        void Organization::Setleader(Person *val)
+        void Organization::Setleader(Person val)
         {
-        Organization::leader=val;//*
+        Organization::leader=&val;//*
         };
         void Organization::printInformation()
         {
             cout<<"Organization name:"<<Organization::name<<"\n";
             cout<<"Organization type:"<<Organization::type<<"\n";
             printPhonesAndEmails();
+            cout<<"----------"<<"\n";
+
            // cout<<"Leader:"<<Organization::leader->GetFIO();
 
         }

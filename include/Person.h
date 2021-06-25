@@ -11,12 +11,14 @@ class Person: public PhoneBookItem
 {
     public:
         virtual ~Person();
+        //Person();
+       // Person(string new_fio,Gender new_gender,Organization new_organization);
         string GetFIO();
         void SetFIO(string val);
         Gender Getgender();
         void Setgender(Gender val);
         Organization* GetOrganization();
-        void SetOrganization(Organization *val);
+        void SetOrganization(Organization val);
         void printInformation();
 
 

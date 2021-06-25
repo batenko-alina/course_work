@@ -1,9 +1,16 @@
 #include "Person.h"
-
-#include "Organization.h"
 #include <iostream>
+#include "Organization.h"
 
 
+        //Person::Person()
+        //{}
+        //Person::Person(string new_fio,Gender new_gender,Organization new_organization)
+        //{
+        //Person::FIO=new_fio;
+        //Person::gender = new_gender;
+        //Person::organization=&new_organization;
+        //}
         Person::~Person(){
         delete Person::organization;
         }
@@ -15,14 +22,15 @@
         {
         return Person::organization;//*
         }
-        void Person::SetOrganization(Organization *val)
+        void Person::SetOrganization(Organization val)
         {
-        Person::organization=val;//*
+        Person::organization=&val;//*
         }
         void Person::printInformation()
         {
             if(FIO!="")
             {
+            cout<<"----------"<<"\n";
             string genderString;
             if(Person::gender==0)genderString="Male";
             if(Person::gender==1)genderString="Female";

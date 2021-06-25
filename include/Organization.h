@@ -1,18 +1,20 @@
 #ifndef ORGANIZATION_H
 #define ORGANIZATION_H
-#include <Person.h>
+#include "PhoneBookItem.h"
+
+class Person;
 
 class Organization: public PhoneBookItem
 {
     public:
-
+        //Organization();
         virtual ~Organization();
         string Getname();
         void Setname(string val);
         string Gettype();
         void Settype(string val);
         Person* Getleader();
-        void Setleader(Person *val);
+        void Setleader(Person val);
         void printInformation();
 
     protected:

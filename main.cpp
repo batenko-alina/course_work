@@ -15,6 +15,7 @@ int main()
     organization1.Settype("Commercial");
 
 
+    //Person person1 = Person("Ivanov ivan Petrovich",female,organization1);
     Person person1 = Person();
     person1.SetFIO("Ivanov ivan Petrovich");
     person1.Setgender(female);
@@ -25,7 +26,11 @@ int main()
     person1Phone.Setform(fullForm);
     person1Phone.Setcategory(mobile);
     person1PhoneList.push_back(person1Phone);
+    Telephone person1Phone2=Telephone(home,fullForm,"+380486225700");
+    person1PhoneList.push_back(person1Phone2);
     person1.SetPhoneList(person1PhoneList);
+
+
 
     vector<string> person1Email;
     person1Email.push_back("11@g.com");
@@ -34,8 +39,8 @@ int main()
 
     //organization1.SetEmailList();
 
-    //organization1.Setleader(&person1);
-    //person1.SetOrganization(&organization1);
+    //organization1.Setleader(person1);
+    //person1.SetOrganization(organization1);
     phoneBook.addOrganizationToList(organization1);
     phoneBook.addPersonToList(person1);
     Person personGetBynumber = phoneBook.getPersonByNumber("+380991234561");

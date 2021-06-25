@@ -13,6 +13,8 @@ fullForm,middleForm,shortForm
 class Telephone
 {
     public:
+    Telephone();
+    Telephone(PhoneCategory phoneCategory,PhoneForm phoneForm,string num);
         virtual ~Telephone();
         PhoneCategory Getcategory() ;
         void Setcategory(PhoneCategory val);
