@@ -37,6 +37,7 @@
                 }
             }
             cout<<"No person with this number"<<"\n";
+            return Person();
         }
 
         Person PhoneBook::getPersonByEmail(string email)
@@ -51,6 +52,8 @@
                 }
             }
             cout<<"No person with this email"<<"\n";
+            return Person();
+
         }
         Person PhoneBook::getPersonByFullName(string fullName)
         {
@@ -60,6 +63,8 @@
                     return personList[i];
             }
             cout<<"No person with this name"<<"\n";
+            return Person();
+
         }
         vector<Person> PhoneBook::getPersonByPartName(string partName)
         {
@@ -87,6 +92,7 @@
                 }
             }
             cout<<"No organization with this number"<<"\n";
+            return Organization();
         }
         Organization PhoneBook::getOrganizationByEmail(string email)
         {
@@ -100,6 +106,7 @@
                 }
             }
             cout<<"No organization with this email"<<"\n";
+            return Organization();
         }
         void PhoneBook::printAllInformation()
         {

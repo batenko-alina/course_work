@@ -14,7 +14,6 @@ class Telephone
 {
     public:
         virtual ~Telephone();
-
         PhoneCategory Getcategory() ;
         void Setcategory(PhoneCategory val);
         PhoneForm Getform() ;

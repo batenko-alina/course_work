@@ -2,6 +2,7 @@
 #include<iostream>
 
 
+
         Organization::~Organization(){
         delete Organization::leader;
         }
@@ -24,16 +25,16 @@
         {
         return Organization::leader;//*
         };
-        void Organization::Setleader(Person val)
+        void Organization::Setleader(Person *val)
         {
-        Organization::leader=&val;//*
+        Organization::leader=val;//*
         };
         void Organization::printInformation()
         {
-            cout<<"Organization name:"<<Organization::name;
-            cout<<"Organization type:"<<Organization::type;
+            cout<<"Organization name:"<<Organization::name<<"\n";
+            cout<<"Organization type:"<<Organization::type<<"\n";
             printPhonesAndEmails();
-            cout<<"Leader:";
-            Organization::leader->printInformation();
+           // cout<<"Leader:"<<Organization::leader->GetFIO();
+
         }
 

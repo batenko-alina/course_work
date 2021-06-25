@@ -15,12 +15,12 @@
             cout<<"Phones:\n";
             for(int i=0;i<PhoneBookItem::PhoneList.size();i++)
             {
-            cout<<"    Phone ¹"<<i+1<<":"<<PhoneBookItem::PhoneList[i].GetNumber()<<"\n";
+            cout<<"    Phone "<<i+1<<": "<<PhoneBookItem::PhoneList[i].GetNumber()<<"\n";
             }
             cout<<"Emails:\n";
             for(int i=0;i<PhoneBookItem::EmailList.size();i++)
             {
-            cout<<"    Email ¹"<<i+1<<":"<<PhoneBookItem::EmailList[i]<<"\n";
+            cout<<"    Email "<<i+1<<": "<<PhoneBookItem::EmailList[i]<<"\n";
             }
 
         }

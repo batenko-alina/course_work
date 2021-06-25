@@ -5,14 +5,14 @@
 class Organization: public PhoneBookItem
 {
     public:
-        virtual ~Organization();
 
+        virtual ~Organization();
         string Getname();
         void Setname(string val);
         string Gettype();
         void Settype(string val);
         Person* Getleader();
-        void Setleader(Person val);
+        void Setleader(Person *val);
         void printInformation();
 
     protected:

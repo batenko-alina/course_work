@@ -2,7 +2,7 @@
 #define PERSON_H
 
 #include "PhoneBookItem.h"
-enum Sex
+enum Gender
 {male,female};
 
 class Organization;
@@ -11,13 +11,12 @@ class Person: public PhoneBookItem
 {
     public:
         virtual ~Person();
-
         string GetFIO();
         void SetFIO(string val);
-        Sex Getsex();
-        void Setsex(Sex val);
+        Gender Getgender();
+        void Setgender(Gender val);
         Organization* GetOrganization();
-        void SetOrganization(Organization* val);
+        void SetOrganization(Organization *val);
         void printInformation();
 
 
@@ -26,7 +25,7 @@ class Person: public PhoneBookItem
 
     private:
     string FIO;
-    Sex sex;
+    Gender gender;
     Organization* organization;
 
 };
