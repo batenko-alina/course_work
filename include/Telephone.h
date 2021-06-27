@@ -16,10 +16,10 @@ class Telephone
     Telephone();
     Telephone(PhoneCategory phoneCategory,PhoneForm phoneForm,string num);
         virtual ~Telephone();
-        PhoneCategory Getcategory() ;
-        void Setcategory(PhoneCategory val);
-        PhoneForm Getform() ;
-        void Setform(PhoneForm val);
+        PhoneCategory GetCategory() ;
+        void SetCategory(PhoneCategory val);
+        PhoneForm GetForm() ;
+        void SetForm(PhoneForm val);
         string GetNumber();
         void SetNumber(string val);
 

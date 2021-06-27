@@ -3,42 +3,47 @@
 #include "Person.h"
 
 
-        //Organization::Organization(){
-        //}
-        Organization::~Organization(){
-        delete Organization::leader;
+        Organization::Organization()
+        {
+            cout << "Enter organization name: ";
+            getline(cin,Organization::name);
+            cout << "Enter type of organization :\n";
+            getline(cin,Organization::type);
+            Organization::leader = nullptr;
         }
-        string Organization::Getname(){
+        Organization::~Organization(){
+        }
+        const string& Organization::GetName() const{
         return Organization::name;
         };
-        void Organization::Setname(string val)
+        void Organization::SetName(const string& val)
         {
         Organization::name=val;
         };
-        string Organization::Gettype()
+        const string& Organization::GetType() const
         {
         return Organization::type;
         };
-        void Organization::Settype(string val)
+        void Organization::SetType(const string& val)
         {
         Organization::type=val;
         };
-        Person* Organization::Getleader()
+        Person* Organization::GetLeader() const
         {
         return Organization::leader;//*
         };
-        void Organization::Setleader(Person val)
+        void Organization::SetLeader(Person* val)
         {
-        Organization::leader=&val;//*
+        Organization::leader=val;//*
         };
-        void Organization::printInformation()
+        void Organization::PrintInformation()
         {
+            cout<<"----------"<<"\n";
             cout<<"Organization name:"<<Organization::name<<"\n";
             cout<<"Organization type:"<<Organization::type<<"\n";
             printPhonesAndEmails();
+            cout<<"Leader:"<<Organization::leader->GetFIO()<<"\n";
             cout<<"----------"<<"\n";
-
-           // cout<<"Leader:"<<Organization::leader->GetFIO();
 
         }
 

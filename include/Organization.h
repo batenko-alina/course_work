@@ -7,15 +7,15 @@ class Person;
 class Organization: public PhoneBookItem
 {
     public:
-        //Organization();
+        Organization();
         virtual ~Organization();
-        string Getname();
-        void Setname(string val);
-        string Gettype();
-        void Settype(string val);
-        Person* Getleader();
-        void Setleader(Person val);
-        void printInformation();
+        const string& GetName() const;
+        void SetName(const string& val);
+        const string& GetType() const;
+        void SetType(const string& val);
+        Person* GetLeader() const ;
+        void SetLeader(Person* val);
+        void PrintInformation();
 
     protected:
 

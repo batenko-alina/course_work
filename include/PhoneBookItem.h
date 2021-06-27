@@ -8,9 +8,12 @@ class PhoneBookItem
     public:
         virtual ~PhoneBookItem();
 
-        virtual vector<Telephone> GetPhoneList() ;
-        virtual void SetPhoneList(vector<Telephone> val) ;
-        virtual vector<string> GetEmailList() ;
+        virtual const vector<Telephone>& GetPhoneList() const ;
+        virtual void SetPhoneList(const vector<Telephone>& val) ;
+        virtual void AddPhone(const Telephone& val) ;
+        virtual const vector<string>& GetEmailList() const;
+        virtual void AddEmail(const string& val);
+        virtual void AddEmail();
         virtual void SetEmailList(vector<string> val) ;
         virtual void printPhonesAndEmails();
 

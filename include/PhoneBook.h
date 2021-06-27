@@ -10,27 +10,35 @@ class PhoneBook
     public:
         virtual ~PhoneBook();
 
-        vector<Person> GetPersonList();
-        void SetPersonList(vector<Person> val);
-        void addPersonToList(Person val);
-        vector<Organization> GetOrganizationList();
-        void SetOrganizationList(vector<Organization> val);
-        Person getPersonByNumber(string number);
-        Person getPersonByEmail(string email);
-        Organization getOrganizationByNumber(string number);
-        Organization getOrganizationByEmail(string email);
-        Person getPersonByFullName(string fullName);
-        vector<Person> getPersonByPartName(string fullName);
-        void addOrganizationToList(Organization val);
-        void printAllInformation();
+        const vector<Person*>& GetPersonList() const;
+        //void SetPersonList(vector<Person*> val);
+
+        void AddPersonToList(Person* val);
+        const vector<Organization*>& GetOrganizationList() const;
+        int chooseOrganization();
+        int choosePerson();
+        //void SetOrganizationList(vector<Organization*> val);
+        Person* GetPersonByIndex(int index);
+        Person* GetPersonByNumber(string number);
+        Person* GetPersonByEmail(string email);
+        Organization* GetOrganizationByIndex(int index);
+        Organization* GetOrganizationByNumber(string number);
+        Organization* GetOrganizationByEmail(string email);
+        Person* GetPersonByFullName(string fullName);
+        vector<Person*> GetPersonByPartName(string fullName) const;
+        void AddOrganizationToList(Organization* val);
+        void PrintPersons();
+        void PrintOrganizations();
+        void PrintAllInformation();
 
 
 
     protected:
 
     private:
-        vector<Person> personList;
-        vector<Organization> organizationList;
+
+        vector<Person*> personList;
+        vector<Organization*> organizationList;
 
 };
 

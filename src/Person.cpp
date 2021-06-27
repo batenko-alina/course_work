@@ -3,41 +3,58 @@
 #include "Organization.h"
 
 
-        //Person::Person()
-        //{}
-        //Person::Person(string new_fio,Gender new_gender,Organization new_organization)
-        //{
-        //Person::FIO=new_fio;
-        //Person::gender = new_gender;
-        //Person::organization=&new_organization;
-        //}
-        Person::~Person(){
-        delete Person::organization;
+        Person::Person()
+        {
+            cout << "Enter full name: ";
+            getline(cin,Person::FIO);
+            cout << "Choose gender :\n1.Male\n2.Female\n";
+            int genderValue;
+            cin >> genderValue;
+            if(genderValue==1)Person::gender = male;
+            else if(genderValue==2)Person::gender = female;
+            else Person::gender = unknown;
+            Person::organization = nullptr;
         }
-        string Person::GetFIO() { return Person::FIO; }
-        void Person::SetFIO(string val) { Person::FIO = val; }
-        Gender Person::Getgender() { return Person::gender; }
-        void Person::Setgender(Gender val) { Person::gender = val; }
+        Person::Person(const string& new_fio,Gender new_gender,Organization* new_organization)
+        {
+            Person::FIO = new_fio;
+            Person::gender = new_gender;
+            Person::organization = new_organization;
+        }
+        const string& Person::GetFIO() const{ return Person::FIO; }
+        void Person::SetFIO(const string& val) { Person::FIO = val; }
+        Gender Person::GetGender() const { return Person::gender; }
+        void Person::SetGender(Gender val) { Person::gender = val; }
         Organization* Person::GetOrganization()
         {
-        return Person::organization;//*
+            return Person::organization;//*
         }
-        void Person::SetOrganization(Organization val)
+        //const Organization* Person::GetOrganization() const
+        //{
+         //   return Person::organization;//*
+        //}
+        void Person::SetOrganization(Organization* val)
         {
-        Person::organization=&val;//*
+            Person::organization=val;//*
         }
-        void Person::printInformation()
+        void Person::PrintInformation()
         {
-            if(FIO!="")
+            if(FIO != "")
             {
-            cout<<"----------"<<"\n";
-            string genderString;
-            if(Person::gender==0)genderString="Male";
-            if(Person::gender==1)genderString="Female";
-            cout<<"FIO:"<<Person::FIO<<"\n";
-            cout<<"Gender:"<<genderString<<"\n";
-            Person::printPhonesAndEmails();
-            //cout<<"Organization information:\n"<<Person::organization->Getname();
+                cout<<"----------"<<"\n";
+                string genderString;
+                if(Person::gender==male)genderString="Male";
+                if(Person::gender==female)genderString="Female";
+                if(Person::gender==unknown)genderString = "Unknown";
+                cout<<"FIO:"<<Person::FIO<<"\n";
+                cout<<"Gender:"<<genderString<<"\n";
+                printPhonesAndEmails();
+                if(Person::organization!=nullptr)
+                {
+                    cout<<"Organization:"<<Person::organization->GetName()<<"\n";
+                }
+                cout<<"----------"<<"\n";
+
             }
         }
 

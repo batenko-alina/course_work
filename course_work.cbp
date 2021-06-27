@@ -38,16 +38,12 @@
 		<Unit filename="include/Person.h" />
 		<Unit filename="include/PhoneBook.h" />
 		<Unit filename="include/PhoneBookItem.h" />
-		<Unit filename="include/Sex.h" />
 		<Unit filename="include/Telephone.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Organization.cpp" />
 		<Unit filename="src/Person.cpp" />
 		<Unit filename="src/PhoneBook.cpp" />
 		<Unit filename="src/PhoneBookItem.cpp" />
-		<Unit filename="src/PhoneCategory.cpp" />
-		<Unit filename="src/PhoneForm.cpp" />
-		<Unit filename="src/Sex.cpp" />
 		<Unit filename="src/Telephone.cpp" />
 		<Extensions>
 			<code_completion />
