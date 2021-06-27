@@ -11,22 +11,22 @@ class PhoneBook
         virtual ~PhoneBook();
 
         const vector<Person*>& GetPersonList() const;
-        //void SetPersonList(vector<Person*> val);
-
         void AddPersonToList(Person* val);
+        void AddOrganizationToList(Organization* val);
         const vector<Organization*>& GetOrganizationList() const;
+        void DeletePersonByIndex(int index);
+        void DeleteOrganizationByIndex(int index);
         int chooseOrganization();
         int choosePerson();
-        //void SetOrganizationList(vector<Organization*> val);
         Person* GetPersonByIndex(int index);
-        Person* GetPersonByNumber(string number);
-        Person* GetPersonByEmail(string email);
+        void FindPersonsByNumber() const;
+        void FindPersonsByEmail() const;
         Organization* GetOrganizationByIndex(int index);
-        Organization* GetOrganizationByNumber(string number);
-        Organization* GetOrganizationByEmail(string email);
-        Person* GetPersonByFullName(string fullName);
-        vector<Person*> GetPersonByPartName(string fullName) const;
-        void AddOrganizationToList(Organization* val);
+        void FindOrganizationsByName() const;
+        void FindOrganizationsByNumber() const;
+        void FindOrganizationsByEmail() const;
+        void FindPersonsByFullName() const;
+        void FindPersonsByPartName() const;
         void PrintPersons();
         void PrintOrganizations();
         void PrintAllInformation();

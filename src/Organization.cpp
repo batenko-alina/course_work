@@ -42,7 +42,8 @@
             cout<<"Organization name:"<<Organization::name<<"\n";
             cout<<"Organization type:"<<Organization::type<<"\n";
             printPhonesAndEmails();
-            cout<<"Leader:"<<Organization::leader->GetFIO()<<"\n";
+            if(Organization::leader!=nullptr)cout<<"Leader:"<<Organization::leader->GetFIO()<<"\n";
+            else cout << "Leader : Empty\n";
             cout<<"----------"<<"\n";
 
         }

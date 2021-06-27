@@ -21,7 +21,7 @@ int get_variant(int count) {
     return variant;
 }
 void print_menu() {
-    //system("clear"); // очищаем экран
+    system("clear"); // очищаем экран
  cout << "1.Print all\n";
  cout << "2.Print persons\n";
  cout << "3.print organizations\n";
@@ -34,13 +34,13 @@ void print_menu() {
  cout << "10.delete person\n";
  cout << "11.delete organization\n";
  cout << "12.find person by number\n";
- cout << "13.find person by full name\n";
- cout << "14.find person by part name\n";
- cout << "15.find organization by name\n";
- cout << "16.find organization by phone\n";
- cout << "17.find organization by email\n";
-
- cout << "18. EXIT" << "\n";
+ cout << "13.Find person by email\n";
+ cout << "14.find person by full name\n";
+ cout << "15.find person by part name\n";
+ cout << "16.find organization by name\n";
+ cout << "17.find organization by phone\n";
+ cout << "18.find organization by email\n";
+ cout << "19. EXIT" << "\n";
 }
 
 
@@ -53,7 +53,7 @@ int main()
     do
     {
         print_menu();
-        variant = get_variant(14);
+        variant = get_variant(19);
         switch(variant)
         {
         case 1: phoneBook.PrintAllInformation();
@@ -74,76 +74,26 @@ int main()
                 break;
         case 9: phoneBook.GetOrganizationByIndex(phoneBook.chooseOrganization())->AddEmail();
                 break;
-        case 10:
+        case 10:phoneBook.DeletePersonByIndex(phoneBook.choosePerson());
                 break;
-        case 11:
+        case 11:phoneBook.DeleteOrganizationByIndex(phoneBook.chooseOrganization());
                 break;
-        case 12:
+        case 12:phoneBook.FindPersonsByNumber();
                 break;
-        case 13:
+        case 13:phoneBook.FindPersonsByEmail();
                 break;
-        case 14:
+        case 14:phoneBook.FindPersonsByFullName();
                 break;
-        case 15:
+        case 15:phoneBook.FindPersonsByPartName();
                 break;
-        case 16:
+        case 16:phoneBook.FindOrganizationsByName();
                 break;
-        case 17:
+        case 17:phoneBook.FindOrganizationsByNumber();
+                break;
+        case 18:phoneBook.FindOrganizationsByEmail();
                 break;
         }
-        if ( variant!=18)
-        system("pause");
 
-    } while (variant!=18);
-
-    //Organization* organization1=new Organization();
-    //organization1->SetName("First!");
-    //organization1->SetType("Commercial");
-
-    //organization1->AddPhone(Telephone(work, shortForm, "25700"));
-    //vector<string> organization1Emails;
-    //organization1Emails.push_back("org@g.com");
-    //organization1->SetEmailList(organization1Emails);
-
-    //Person* person1 =new Person();
-    //person1->SetFIO("Ivanov ivan Petrovich");
-    //person1->Setgender(male);
-
-    //vector<Telephone> person1PhoneList;
-    //Telephone person1Phone = Telephone();
-    //person1Phone.SetNumber("+380991234567");
-    //person1Phone.SetForm(fullForm);
-    //person1Phone.SetCategory(mobile);
-    //person1PhoneList.push_back(person1Phone);
-    //Telephone person1Phone2=Telephone(home,fullForm,"+380486225700");
-    //person1PhoneList.push_back(person1Phone2);
-    //person1->SetPhoneList(person1PhoneList);
-
-
-
-    //vector<string> person1Email;
-    //person1Email.push_back("11@g.com");
-    //person1->SetEmailList(person1Email);
-
-
-    //organization1->SetLeader(person1);
-    //person1.SetOrganization(organization1);
-    //phoneBook.AddOrganizationToList(organization1);
-    //phoneBook.AddPersonToList(person1);
-
-    Person* personGetBynumber = phoneBook.GetPersonByNumber("+380991234567");
-    if(personGetBynumber!=nullptr)
-    {
-        personGetBynumber->PrintInformation();
-    }
-    else cout<<"No person with this number"<<endl;
-    vector<Person*> personGetByPartName = phoneBook.GetPersonByPartName("Ivan123");
-    for(int i=0;i<personGetByPartName.size();i++)
-    {
-        personGetByPartName[i]->PrintInformation();
-    }
-    //Organization organizationByEmail = phoneBook.getOrganizationByEmail("")
-
-    phoneBook.PrintAllInformation();
+    } while (variant!=19);
     return 0;
 }
